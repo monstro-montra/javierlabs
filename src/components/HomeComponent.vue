@@ -33,6 +33,7 @@ export default {
 
 .responsive-image {
   max-width: 70%;
-  height:auto
+  height:auto;
+  border-radius: 10px;
 }
 </style>
