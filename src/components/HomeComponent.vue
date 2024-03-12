@@ -1,15 +1,11 @@
 <template>
   <div class="scroll-container" ref="imageContainer" @wheel.prevent="handleWheel" style="overflow-x: auto; white-space: nowrap;">
     <div v-for="(image, index) in images" :key="index" class="image-wrapper">
-      <div class="image-number">{{ index + 1 }}</div>
       <img :src="image.src" :alt="'Image ' + (index + 1)" class="image">
+      <div class="image-number">{{ index + 1 }}</div>
     </div>
   </div>
 </template>
-
-
-
-
 
 <script>
 export default {
@@ -67,31 +63,33 @@ body, html {
   overflow-x: auto;
   overflow-y: hidden;
   white-space: nowrap; /* Keep inline or inline-block elements in a single line */
+  display: flex;
+  align-items: center;
 }
 
 .image-wrapper {
-  display: inline-block; /* Keeps the wrapper in line */
-  position: relative; /* Allows absolute positioning of the number within */
-  margin-right: 20px; /* Adjust as needed to create space between images */
+  display: inline-block;
+  position: relative;
+  margin-right: 80px;
 }
 
 .image-number {
   position: absolute;
-  top: 0;
-  left: 0;
+  top: 50%;
+  right: -60px;
+  transform: translateY(-50%);
   background-color: #332E3C;
   color: white;
-  padding: 5px 10px; /* Adjust as needed */
+  padding: 5px 10px;
   z-index: 2;
 }
 
 .image {
-  max-height: 100vh; /* Adjust based on viewport height */
-  max-width: 100%; /* Ensures image does not exceed the wrapper's width */
-  height: auto; /* Maintain aspect ratio */
-  width: auto; /* Maintain aspect ratio */
+  max-height: 100vh;
+  max-width: calc(100vw - 60px);
+  height: auto;
+  width: auto;
 }
-
 
 .logo {
   position: fixed;
