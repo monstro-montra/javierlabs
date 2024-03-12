@@ -50,6 +50,7 @@ export default {
   filter: blur(5px);
   opacity: 0;
   transition: filter 1s ease-in-out, opacity 1s ease-in-out;
+  padding: 16px;
 }
 /* When the image becomes visible, remove the blur and make it fully opaque */
 .is-visible {
