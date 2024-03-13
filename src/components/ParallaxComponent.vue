@@ -60,4 +60,14 @@ export default defineComponent({
         height: 100vh;
         width: 100%;
     }
-</style>
+
+
+@media (max-width: 768px) {
+  .parallax {
+    /* Adjust background size and position for smaller screens */
+    background-size: auto 100%;
+    background-attachment: scroll;
+  }
+}
+
+</style> 

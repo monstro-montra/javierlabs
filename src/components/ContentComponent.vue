@@ -1,17 +1,25 @@
 <template>
-    <div class="content">
-      <h2>{{ number }}</h2>
-      <p>{{ content }}</p>
-    </div>
-  </template>
+  <div class="content">
+    <h2>{{ String(number).padStart(2, '0') }}</h2>
+    <p>{{ content }}</p>
+  </div>
+</template>
   
-  <script>
+<script>
   export default {
-    props: ['number', 'content'],
+    props: {
+      number: {
+        type: Number,
+        required: true,
+      },
+      content: {
+        type: String,
+        required: true,
+      },
+    },
   };
-  </script>
-  
-  <style>
+</script>
+
+<style>
   /* Style your content here */
-  </style>
-  
+</style>
