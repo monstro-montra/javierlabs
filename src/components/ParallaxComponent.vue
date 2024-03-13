@@ -33,7 +33,7 @@ export default defineComponent({
             if (parallaxRef.value){
               const { offsetTop } = parallaxRef.value; // gets the element's top offset
               // Adjust this to change the speed of the parallax effect
-              const parallaxSpeed = 1;
+              const parallaxSpeed = 0.5;
               const offset = lastScrollPosition * parallaxSpeed - offsetTop;
               
               // Apply the effect
@@ -63,33 +63,33 @@ export default defineComponent({
 </script>
 
 <style>
-    .parallax {
-        background-attachment: fixed;
-        background-position: center center;
-        background-repeat: no-repeat;
-        background-size: cover; /* cover the entire element */
-        height: 100vh;
-        width: 100%;
-    }
-
-
-  /* For mobile devices */
-  @media only screen and (max-width: 767px) {
-    .parallax {
-      background-size: contain;
-      background-attachment: scroll;
-      background-position: center center;
-    }
+  .parallax {
+      background-attachment: fixed;
+      background-position: center; /* first arg is horizontal alignment, second arg is vertical alignment*/
+      background-repeat: no-repeat;
+      background-size: cover; /* cover the entire element */
+      height: 100vh;
+      width: 100%;
   }
 
-  /* For tablets in portrait mode */
-  @media only screen and (min-width: 768px) and (max-width: 991px) and (orientation: portrait) {
-    .parallax {
-      background-size: contain;
-      background-attachment: scroll;
-      background-position: center center;
-    }
+
+    /* For portrait orientation */
+@media (max-width: 600px) {
+  .parallax {
+    /* Adjust background size and position for smaller screens */
+    background-size: contain; /* adjust size to maintain aspect ratio. */
+    background-attachment: scroll; /* set to scroll since fixed can have performance issues on mobile */
+    background-position: center center
   }
+}
+
+@media (max-height: 600px) {
+  .parallax {
+    background-size: cover;
+    background-attachment: scroll;
+    background-position: center center;
+  }
+}
 
   /* For tablets in landscape mode and small laptops */
   @media only screen and (min-width: 992px) and (max-width: 1199px) {
