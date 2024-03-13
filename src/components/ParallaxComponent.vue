@@ -65,7 +65,7 @@ export default defineComponent({
 <style>
     .parallax {
         background-attachment: fixed;
-        background-position: center;
+        background-position: center center;
         background-repeat: no-repeat;
         background-size: cover; /* cover the entire element */
         height: 100vh;
@@ -73,11 +73,21 @@ export default defineComponent({
     }
 
 
+    /* For portrait orientation */
 @media (max-width: 600px) {
   .parallax {
     /* Adjust background size and position for smaller screens */
-    background-size: auto 100%; /* adjust size to maintain aspect ratio. */
+    background-size: contain; /* adjust size to maintain aspect ratio. */
     background-attachment: scroll; /* set to scroll since fixed can have performance issues on mobile */
+    background-position: center center
+  }
+}
+
+@media (max-height: 600px) {
+  .parallax {
+    background-size: cover;
+    background-attachment: scroll;
+    background-position: center center;
   }
 }
 
