@@ -71,25 +71,23 @@ export default defineComponent({
       height: 100vh;
       width: 100%;
   }
-
-
-    /* For portrait orientation */
-@media (max-width: 600px) {
-  .parallax {
-    /* Adjust background size and position for smaller screens */
-    background-size: contain; /* adjust size to maintain aspect ratio. */
-    background-attachment: scroll; /* set to scroll since fixed can have performance issues on mobile */
-    background-position: center center
+  /* For mobile devices */
+  @media only screen and (max-width: 767px) {
+    .parallax {
+      background-size: contain;
+      background-attachment: scroll;
+      background-position: center center;
+    }
   }
-}
 
-@media (max-height: 600px) {
-  .parallax {
-    background-size: cover;
-    background-attachment: scroll;
-    background-position: center center;
+  /* For tablets in portrait mode */
+  @media only screen and (min-width: 768px) and (max-width: 991px) and (orientation: portrait) {
+    .parallax {
+      background-size: contain;
+      background-attachment: scroll;
+      background-position: center center;
+    }
   }
-}
 
   /* For tablets in landscape mode and small laptops */
   @media only screen and (min-width: 992px) and (max-width: 1199px) {
