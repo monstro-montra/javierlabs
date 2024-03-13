@@ -3,52 +3,63 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, PropType, computed } from 'vue';
+import { defineComponent, ref, onMounted, onBeforeUnmount, computed } from 'vue';
 
 export default defineComponent({
   props: {
     imageUrl: {
-      type: String as PropType<string>,
-      required: true
-    }
+      type: String, // image url for the background image
+      required: true 
+    },
   },
+
   setup(props) {
+    // reactive reference to div element for direct DOM manipulation
+    const parallaxRef = ref<HTMLElement | null>(null);
+
+    // flag to make sure requestAnimationFrame isn't called more times than necessary
+    const ticking = ref(false);
+
+    // Computed property to dynamically update the background image based on props
     const backgroundStyle = computed(() => ({
-      backgroundImage: `url(${(props.imageUrl)})`
+      backgroundImage: `url(${props.imageUrl})`,
     }));
 
-    return { backgroundStyle };
-  },
-  mounted() {
-    this.addScrollEventListener();
-  },
-  beforeUnmount() {
-    this.removeScrollEventListener();
+    // method to handle scroll events and apply the parallax effect
+    const handleScroll = () => {
+        const lastScrollPosition = window.scrollY // updates the lastScrollPosition with the current vertical scroll position
+        if (!ticking.value) {
+          window.requestAnimationFrame(() => {
+            if (parallaxRef.value){
+              const { offsetTop } = parallaxRef.value; // gets the element's top offset
+              // Adjust this to change the speed of the parallax effect
+              const parallaxSpeed = 1;
+              const offset = lastScrollPosition * parallaxSpeed - offsetTop;
+              
+              // Apply the effect
+              parallaxRef.value.style.backgroundPositionY = `${offset}px`;
+
+              ticking.value = false; // reset flag
+            }
+          });
+          ticking.value = true; // sets the flag to true to prevent multiple invocations
+        } 
+    };
+
+    // Adds the scroll event listener when the component is mounted
+    onMounted(() => {
+      window.addEventListener('scroll', handleScroll);
+    });
+
+     // Removes the scroll event listener before the component is unmounted
+    onBeforeUnmount(() => {
+      window.removeEventListener('scroll', handleScroll);
+    });
+
+    return { backgroundStyle, parallaxRef }
   },
 
-    methods: {
-        handleScroll() {
-            // Assert this.$refs.parallax as an HTMLElement to access DOM properties like offsetTop
-            const parallaxElement = this.$refs.parallax as HTMLElement;
-            
-            const { offsetTop } = parallaxElement;
-            const scrollPosition = window.scrollY || window.pageYOffset;
-            
-            // Adjust this to change the speed of the parallax effect
-            const parallaxSpeed = 1;
-            const offset = scrollPosition * parallaxSpeed - offsetTop;
-            
-            // Apply the effect
-            parallaxElement.style.backgroundPositionY = `${offset}px`;
-        },
-        addScrollEventListener() {
-          window.addEventListener('scroll', this.handleScroll);
-        },
-        removeScrollEventListener() {
-          window.removeEventListener('scroll', this.handleScroll);
-        }
-    }
-  });
+});
 </script>
 
 <style>
@@ -56,17 +67,17 @@ export default defineComponent({
         background-attachment: fixed;
         background-position: center;
         background-repeat: no-repeat;
-        background-size: cover;
+        background-size: cover; /* cover the entire element */
         height: 100vh;
         width: 100%;
     }
 
 
-@media (max-width: 768px) {
+@media (max-width: 600px) {
   .parallax {
     /* Adjust background size and position for smaller screens */
-    background-size: auto 100%;
-    background-attachment: scroll;
+    background-size: auto 100%; /* adjust size to maintain aspect ratio. */
+    background-attachment: scroll; /* set to scroll since fixed can have performance issues on mobile */
   }
 }
 
