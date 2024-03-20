@@ -1,15 +1,32 @@
 <template>
   <div class = "Title">
-    <h1>Javier Labs</h1>
+    <CustomText tag="h1">
+      Javier Labs
+    </CustomText>
   </div>
   <div class = "Logo">
     <img src="@/assets/javierlabs logo transparent.png" alt="Logo" />
   </div>
-  <div class = "Description">
-    <h2> Software Developer, ML Engineer, and Photographer </h2>
-    <h3> I develop software focused on machine learning and shoot photography. </h3>
+  <div>
+    <CustomText tag="h2">
+      Software Developer, ML Engineer, and Photographer
+    </CustomText>
+    <CustomText tag="p">
+      I develop software focused on machine learning and shoot photography.
+    </CustomText>
   </div>
+  <div class = ""></div>
 </template>
+
+<script lang="ts">
+import CustomText from '@/components/TextComponent.vue';
+
+export default {
+  components: {
+    CustomText
+  }
+};
+</script>
 
 <style>
 
@@ -28,4 +45,5 @@
   .Description {
     margin-top:5%
   }
+
 </style>

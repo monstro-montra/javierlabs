@@ -2,7 +2,9 @@
   <div>
     <div class="navbar">
       <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+      <router-link to="/about">About</router-link> |
+      <router-link to="/photography">Photography</router-link>
+      
     </div>
     <router-view/>
   </div>
@@ -11,7 +13,7 @@
 <style>
 #app {
   background-color:#332E3C;
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: 'Monaco', monospace;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
@@ -21,7 +23,7 @@
 
 .navbar {
   background-color: #E2E2E2; /* your desired color */
-  color: #247BA0; /* text color */
+  color: #247BA0; /* color */
   padding: 20px 0; /* padding above and below the text */
   text-align: center; /* center the links */
   width: 100%; /* make the navbar full width */
