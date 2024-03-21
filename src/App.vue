@@ -3,7 +3,8 @@
     <div class="navbar">
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link> |
-      <router-link to="/photography">Photography</router-link>
+      <router-link to="/photography">Photography</router-link> |
+      <router-link to="/projects">Projects</router-link>
       
     </div>
     <router-view/>
@@ -25,7 +26,9 @@
   background-color: #E2E2E2; /* your desired color */
   color: #247BA0; /* color */
   padding: 20px 0; /* padding above and below the text */
-  text-align: center; /* center the links */
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
   width: 100%; /* make the navbar full width */
 }
 
