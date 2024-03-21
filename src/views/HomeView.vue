@@ -36,6 +36,13 @@ export default {
     margin-left: 2%
   }
 
+  @media (max-width: 768px) {
+    .Title{
+      text-align: center;
+      margin-left:0;
+    }
+  }
+
   .Logo img {
     height: auto;
     max-width: 100px;
