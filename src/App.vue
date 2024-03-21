@@ -13,7 +13,7 @@
 
 <style>
 #app {
-  background-color:#332E3C;
+  background-color:#6732cb;
   font-family: 'Monaco', monospace;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
