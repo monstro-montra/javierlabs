@@ -3,6 +3,7 @@ import HomeView from '../views/HomeView.vue'
 import PhotographyView from '../views/PhotographyView.vue'
 import AboutView from '../views/AboutView.vue'
 import ProjectsView from '../views/ProjectsView.vue'
+import TradingBotProjectView from '../views/projects/TradingBotProjectView.vue'
 
 const routes = [
   {
@@ -24,6 +25,11 @@ const routes = [
     path: '/projects',
     name: 'projects',
     component: ProjectsView
+  },
+  {
+    path: '/projects/stock-predictor',
+    name: 'stock-predictor',
+    component: TradingBotProjectView
   }
 
 

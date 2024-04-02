@@ -1,5 +1,5 @@
 <template>
-    <div class="home">
+    <div class="photography">
       <ContentComponent :number="1" :content="content1" />
       <ParallaxComponent :imageUrl="imageUrl1" />
   
@@ -33,7 +33,7 @@
       ContentComponent,
     },
   })
-  export default class HomeView extends Vue {
+  export default class PhotographyView extends Vue {
     imageUrl1 = require('@/assets/1.jpg')
     content1 = '';
   
