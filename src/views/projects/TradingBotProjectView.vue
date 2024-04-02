@@ -3,6 +3,9 @@
       <CustomText tag="h1">
         Trading Bot
       </CustomText>
+      <CustomText tag="h2">
+        Test
+      </CustomText>
       
     </div>
   </template>
