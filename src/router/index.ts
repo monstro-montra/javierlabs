@@ -4,7 +4,7 @@ import PhotographyView from '../views/PhotographyView.vue'
 import AboutView from '../views/AboutView.vue'
 import ProjectsView from '../views/ProjectsView.vue'
 import TradingBotProjectView from '../views/projects/TradingBotProjectView.vue'
-import SierpinskiGasketView from '@/views/projects/SierpinskiGasketView.vue'
+import InteractiveViewerView from '@/views/projects/InteractiveViewerView.vue'
 
 const routes = [
   {
@@ -33,9 +33,9 @@ const routes = [
     component: TradingBotProjectView
   },
   {
-    path: '/projects/sierpinski-gasket',
-    name: 'sierpinski-gasket',
-    component: SierpinskiGasketView
+    path: '/projects/interactive-viewer',
+    name: 'interactive viewer',
+    component: InteractiveViewerView
   }
     
 

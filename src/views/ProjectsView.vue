@@ -37,10 +37,10 @@ export default defineComponent({
           description: "A stock price movement predictor that utilizes machine learning to capture patterns in stock data."
         },
         {
-          name: "Sierpinski Gasket",
-          route: "/projects/sierpinski-gasket",
-          image: "tradingbot.jpg",
-          description: "A WebGL + JS repository that illustrates Sierpinski Gasket Fractals."
+          name: "Interactive Viewer",
+          route: "/projects/interactive-viewer",
+          image: "interactive-viewer.png",
+          description: "A three.js repository that displays a 3D model of an island."
         }
         // more projects here
       ],

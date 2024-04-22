@@ -12,7 +12,7 @@
       Software Developer, ML Engineer, and Photographer
     </CustomText>
     <CustomText tag="p">
-      I develop software focused on machine learning and shoot photography.
+      I develop software using a myriad of different technologies and shoot photography.
     </CustomText>
   </div>
   <div class = ""></div>

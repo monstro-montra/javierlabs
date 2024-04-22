@@ -14,6 +14,7 @@
 <style>
 #app {
   background-color:#6732cb;
+  background-size: cover;
   font-family: 'Monaco', monospace;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -23,7 +24,7 @@
 }
 
 .navbar {
-  background-color: #E2E2E2; /* your desired color */
+  background-color: #E2E2E2; /* your desired color n*/
   color: #247BA0; /* color */
   padding: 20px 0; /* padding above and below the text */
   align-items: center;
